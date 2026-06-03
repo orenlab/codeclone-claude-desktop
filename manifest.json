@@ -1,0 +1,208 @@
+{
+  "manifest_version": "0.3",
+  "name": "codeclone",
+  "display_name": "CodeClone",
+  "version": "2.1.0",
+  "description": "Structural Change Controller for AI-assisted Python development — local MCP bundle for Claude Desktop.",
+  "long_description": "CodeClone for Claude Desktop wraps the local codeclone-mcp launcher as an MCP bundle. Structural change controller for AI-assisted Python development — same canonical 31-tool MCP surface used by the CLI, HTML report, VS Code extension, and Codex plugin. Repository read-only (source, baselines, cache, reports), baseline-aware, local stdio only. Includes intent declaration, blast radius, patch contract, review receipt, engineering memory, and claim validation via validate_review_claims and finish_controlled_change. Ephemeral coordination may be stored under .cache/codeclone/intents/.",
+  "author": {
+    "name": "Den Rozhnovskiy",
+    "email": "pytelemonbot@mail.ru",
+    "url": "https://github.com/orenlab"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orenlab/codeclone.git"
+  },
+  "homepage": "https://github.com/orenlab/codeclone",
+  "documentation": "https://orenlab.github.io/codeclone/claude-desktop-bundle/",
+  "support": "https://github.com/orenlab/codeclone/issues",
+  "privacy_policies": [
+    "https://orenlab.github.io/codeclone/privacy-policy/"
+  ],
+  "icon": "media/icon.png",
+  "keywords": [
+    "mcp",
+    "claude-desktop",
+    "codeclone",
+    "change-controller",
+    "structural-review",
+    "baseline-aware",
+    "blast-radius",
+    "code-quality"
+  ],
+  "tools": [
+    {
+      "name": "analyze_repository",
+      "description": "Run a deterministic CodeClone analysis and register it as the latest MCP run."
+    },
+    {
+      "name": "analyze_changed_paths",
+      "description": "Run a deterministic CodeClone analysis and return a changed-files projection."
+    },
+    {
+      "name": "get_run_summary",
+      "description": "Cheapest run-level snapshot: health, findings, baseline, inventory."
+    },
+    {
+      "name": "get_production_triage",
+      "description": "Production-first triage: health, hotspots, suggestions, source-kind counters."
+    },
+    {
+      "name": "get_blast_radius",
+      "description": "Structural risk boundary: dependents, clone cohorts, do-not-touch paths, review context."
+    },
+    {
+      "name": "get_relevant_memory",
+      "description": "Ranked, evidence-linked engineering memory for the declared edit scope. Read-only."
+    },
+    {
+      "name": "query_engineering_memory",
+      "description": "Mode-based engineering memory inspection: search, get, for_path, for_symbol, stale, drafts, coverage, status. Read-only."
+    },
+    {
+      "name": "manage_engineering_memory",
+      "description": "Engineering memory governance router: refresh_from_run, record_candidate (draft), validate_claims, propose_from_receipt. Human approve/reject use the VS Code Memory view."
+    },
+    {
+      "name": "manage_change_intent",
+      "description": "Change intent lifecycle: declare scope, get status, check diff, clear intent."
+    },
+    {
+      "name": "start_controlled_change",
+      "description": "Pre-edit workflow: declare change intent, compute blast radius, and return patch budget in one call."
+    },
+    {
+      "name": "finish_controlled_change",
+      "description": "Post-edit workflow: verify scope, run patch contract, validate claims, generate receipt, and clear intent."
+    },
+    {
+      "name": "check_patch_contract",
+      "description": "Patch contract checks: budget before editing, verify before/after runs after editing."
+    },
+    {
+      "name": "create_review_receipt",
+      "description": "Deterministic audit artifact: provenance, intent scope, blast radius, patch status, and claims-not-made."
+    },
+    {
+      "name": "validate_review_claims",
+      "description": "Validate cited review text against canonical report semantics and detect deterministic mischaracterizations."
+    },
+    {
+      "name": "list_hotspots",
+      "description": "Priority-ranked hotspot views by kind."
+    },
+    {
+      "name": "list_findings",
+      "description": "List canonical finding groups with filters, pagination, and summary cards."
+    },
+    {
+      "name": "get_finding",
+      "description": "Return a single canonical finding group by short or full id."
+    },
+    {
+      "name": "get_remediation",
+      "description": "Return actionable remediation guidance for a single finding."
+    },
+    {
+      "name": "get_report_section",
+      "description": "Return a canonical report section for the latest or specified run."
+    },
+    {
+      "name": "check_clones",
+      "description": "Return clone findings from a compatible stored run."
+    },
+    {
+      "name": "check_complexity",
+      "description": "Return complexity hotspots from a compatible stored run."
+    },
+    {
+      "name": "check_coupling",
+      "description": "Return coupling hotspots from a compatible stored run."
+    },
+    {
+      "name": "check_cohesion",
+      "description": "Return cohesion hotspots from a compatible stored run."
+    },
+    {
+      "name": "check_dead_code",
+      "description": "Return dead-code findings from a compatible stored run."
+    },
+    {
+      "name": "compare_runs",
+      "description": "Run-to-run delta: regressions, improvements, health change."
+    },
+    {
+      "name": "evaluate_gates",
+      "description": "Evaluate CI gate conditions against an existing MCP run."
+    },
+    {
+      "name": "generate_pr_summary",
+      "description": "PR-friendly markdown or JSON summary of changed files."
+    },
+    {
+      "name": "mark_finding_reviewed",
+      "description": "Mark a finding as reviewed in the current in-memory MCP session."
+    },
+    {
+      "name": "list_reviewed_findings",
+      "description": "List in-memory reviewed findings for the current or specified run."
+    },
+    {
+      "name": "clear_session_runs",
+      "description": "Clear all in-memory MCP analysis runs and ephemeral session state."
+    },
+    {
+      "name": "help",
+      "description": "Explain a CodeClone workflow or contract topic and suggest the safest next step."
+    }
+  ],
+  "tools_generated": true,
+  "license": "MPL-2.0",
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": [
+      "darwin",
+      "linux",
+      "win32"
+    ],
+    "runtimes": {
+      "node": ">=20.0.0"
+    }
+  },
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js"
+      ],
+      "env": {
+        "CODECLONE_MCP_COMMAND": "${user_config.launcher_command}",
+        "CODECLONE_MCP_ARGS_JSON": "${user_config.launcher_args_json}",
+        "CODECLONE_WORKSPACE_ROOT": "${user_config.workspace_root}"
+      }
+    }
+  },
+  "user_config": {
+    "workspace_root": {
+      "type": "string",
+      "title": "Workspace root path",
+      "description": "Optional absolute path to the Python project root (the directory that contains .venv or venv). When set, the launcher prefers that virtual environment over user-local or system-wide installs. Useful when Claude Desktop starts outside the project directory.",
+      "required": false
+    },
+    "launcher_command": {
+      "type": "string",
+      "title": "CodeClone launcher command",
+      "description": "Optional absolute path or bare command name for codeclone-mcp. Leave empty to prefer workspace launchers, then user-local paths, then PATH.",
+      "required": false
+    },
+    "launcher_args_json": {
+      "type": "string",
+      "title": "Advanced launcher args (JSON array)",
+      "description": "Optional JSON array of additional codeclone-mcp arguments. Transport is always stdio and cannot be overridden.",
+      "required": false
+    }
+  }
+}

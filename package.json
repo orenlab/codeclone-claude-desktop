@@ -1,0 +1,16 @@
+{
+  "name": "@orenlab/codeclone-claude-desktop",
+  "version": "2.1.0",
+  "private": true,
+  "description": "Structural Change Controller for AI-assisted Python development — Claude Desktop MCP bundle.",
+  "license": "MPL-2.0",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "check": "node --check server/index.js && node --check src/launcher.js && node --check scripts/build-mcpb.mjs",
+    "test": "node --test test/*.test.js",
+    "pack": "node scripts/build-mcpb.mjs"
+  }
+}
