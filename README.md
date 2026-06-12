@@ -3,10 +3,11 @@
 **Structural Change Controller for AI-assisted Python development** — local MCP
 bundle wrapper for `codeclone-mcp`. Installs as a `.mcpb` package instead of manual JSON editing.
 
-Same canonical 31-tool MCP surface used by CLI, VS Code, Codex, and Claude Code.
+Same canonical default agent MCP surface used by CLI, VS Code, Codex, and
+Claude Code.
 Repository read-only (source, baselines, cache, canonical reports); local stdio
 only. The bundle proxies the full MCP server, including change-control and
-session tools — ephemeral coordination under `.cache/codeclone/intents/` and
+session tools — ephemeral coordination under `.codeclone/intents/` and
 optional audit records when enabled.
 As the local `codeclone-mcp` server gains new canonical surfaces, the bundle
 exposes them without adding a second client-side interpretation layer.
@@ -108,7 +109,7 @@ npm run pack     # build .mcpb
 
 ## Links
 
-- [Claude Desktop bundle guide](https://orenlab.github.io/codeclone/claude-desktop-bundle/)
-- [MCP usage guide](https://orenlab.github.io/codeclone/mcp/)
-- [Change controller docs](https://orenlab.github.io/codeclone/book/24-structural-change-controller/)
+- [Claude Desktop bundle guide](https://orenlab.github.io/codeclone/guide/integrations/claude-desktop/setup/)
+- [MCP usage guide](https://orenlab.github.io/codeclone/guide/mcp/)
+- [Change controller docs](https://orenlab.github.io/codeclone/book/12-structural-change-controller/)
 - [Issues](https://github.com/orenlab/codeclone/issues)
